@@ -1,0 +1,50 @@
+<!--in the same directory as this code store a video and name it my_video.mp4
+    if it requires users to upload the video themselves, inbox me
+    i did this based on teh most i understood out of the question-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <video id="video" width="400">
+                <source src="my_video.mp4" type="video/mp4">
+            </video>
+    
+            <select name="rate" id="rate">
+                <option value="">--select speed--</option>
+                <option value="1.0">*1</option>
+                <option value="3.0">*3</option>
+            </select>
+            <button id="play">Play</button>
+            <button id="pause">Pause</button>
+        </div>
+    </body>
+</html>
+<script> 
+    var vid = document.getElementById("video");
+
+    $(document).ready(function(){
+        $("#rate").change(function(){
+            vid.load();
+            vid.playbackRate = $(this).val(); 
+            vid.play();
+        });
+    });
+
+    $(document).ready(function(){
+        $("#play").click(function(){
+            vid.play();
+
+        });
+    });
+
+    $(document).ready(function(){
+        $("#pause").click(function(){
+            vid.pause();
+        });
+    });
+</script> 
